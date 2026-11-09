@@ -7,8 +7,6 @@ const int FLAP_DOWN_PIN = 0;
 
 const int STABLE_TIME = 100; // milliseconds
 
-int previous_flap_position = 1; // 0: down, 1: neutral, 2: up
-
 typedef struct {
         bool stable_button_state;
         bool candidate_button_state;
@@ -50,6 +48,8 @@ int main()
 
     Input flap_up = {false, false, 0};
     Input flap_down = {false, false, 0};
+
+    int previous_flap_position = 1; // 0: down, 1: neutral, 2: up
 
     while (true) {
         if (update_button_state(BUTTON_PIN, &button_input)) {
